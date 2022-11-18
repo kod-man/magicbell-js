@@ -1,9 +1,9 @@
 {
-  "name": "ping-vscode",
+  "name": "ping",
   "version": "0.0.0",
   "private": true,
-  "description": "Ping VSCode extension by Magicbell",
-  "author": "MagicBell <bot@magicbell.io> (https://magicbell.com)",
+  "description": "Ping, not notifications, for engineering productivity!",
+  "author": "MagicBell <bot@magicbell.io> (https://www.magicbell.com)",
   "publisher": "magicbell",
   "contributors": [
     "Stephan Meijer <stephan.meijer@gmail.com>"
@@ -20,13 +20,13 @@
     "/dist",
     "/src"
   ],
-  "homepage": "https://magicbell.com",
+  "homepage": "https://www.magicbell.com",
   "keywords": [
     "magicbell",
     "notifications",
-    "notification center",
     "notification inbox",
-    "vscode"
+    "slack notifications",
+    "github notifications"
   ],
   "repository": {
     "type": "git",
@@ -42,6 +42,8 @@
     "build:app": "cross-env ENTRY=app vite build --minify",
     "start": "run-p \"build:ext --watch\" \"build:app --watch\"",
     "vscode:prepublish": "yarn build",
+    "vscode:publish": "vsce publish",
+    "vscode:login": "vsce login magicbell",
     "package": "vsce package -o dist/ping.vsix --yarn",
     "deploy:local": "yarn package && code --install-extension dist/ping.vsix --force",
     "code:dev": "code --extensionDevelopmentPath=${PWD}"
